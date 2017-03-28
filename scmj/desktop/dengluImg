@@ -1,0 +1,74 @@
+dengluImg.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+denglu-majiang
+  rotate: false
+  xy: 2, 580
+  size: 408, 236
+  orig: 408, 236
+  offset: 0, 0
+  index: -1
+denglu-guestlogin-sell
+  rotate: false
+  xy: 449, 441
+  size: 445, 143
+  orig: 445, 143
+  offset: 0, 0
+  index: -1
+singlegameBtn
+  rotate: false
+  xy: 449, 286
+  size: 78, 146
+  orig: 78, 146
+  offset: 0, 0
+  index: -1
+denglu-guestlogin
+  rotate: false
+  xy: 529, 296
+  size: 445, 143
+  orig: 445, 143
+  offset: 0, 0
+  index: -1
+denglu-qqlogin
+  rotate: false
+  xy: 2, 286
+  size: 445, 145
+  orig: 445, 145
+  offset: 0, 0
+  index: -1
+denglu-huanle
+  rotate: false
+  xy: 896, 441
+  size: 84, 141
+  orig: 84, 141
+  offset: 0, 0
+  index: -1
+denglu-weixinlogin-sell
+  rotate: false
+  xy: 530, 149
+  size: 445, 145
+  orig: 445, 145
+  offset: 0, 0
+  index: -1
+denglu-weixinlogin
+  rotate: false
+  xy: 530, 2
+  size: 445, 145
+  orig: 445, 145
+  offset: 0, 0
+  index: -1
+denglu-logo
+  rotate: false
+  xy: 2, 2
+  size: 526, 282
+  orig: 526, 282
+  offset: 0, 0
+  index: -1
+denglu-qqlogin-sell
+  rotate: false
+  xy: 2, 433
+  size: 445, 145
+  orig: 445, 145
+  offset: 0, 0
+  index: -1

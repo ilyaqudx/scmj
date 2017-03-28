@@ -1,0 +1,102 @@
+userHead.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Head_Common_Female
+  rotate: false
+  xy: 2, 428
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Head_Common_Male
+  rotate: false
+  xy: 2, 356
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Head_back_online_down
+  rotate: false
+  xy: 2, 2
+  size: 224, 76
+  orig: 224, 76
+  offset: 0, 0
+  index: -1
+Head_back_up_down
+  rotate: false
+  xy: 2, 80
+  size: 186, 76
+  orig: 186, 76
+  offset: 0, 0
+  index: -1
+Head_beans_wan
+  rotate: false
+  xy: 228, 2
+  size: 24, 26
+  orig: 24, 26
+  offset: 0, 0
+  index: -1
+Head_beans_yi
+  rotate: false
+  xy: 190, 80
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+Head_head_default
+  rotate: false
+  xy: 188, 197
+  size: 66, 68
+  orig: 66, 68
+  offset: 0, 0
+  index: -1
+Head_item_buy
+  rotate: false
+  xy: 224, 80
+  size: 30, 34
+  orig: 30, 34
+  offset: 0, 0
+  index: -1
+Head_state_ready
+  rotate: false
+  xy: 2, 310
+  size: 73, 44
+  orig: 73, 44
+  offset: 0, 0
+  index: -1
+Head_word_left
+  rotate: false
+  xy: 103, 236
+  size: 83, 37
+  orig: 83, 37
+  offset: 0, 0
+  index: -1
+Head_word_me
+  rotate: false
+  xy: 103, 275
+  size: 81, 35
+  orig: 81, 35
+  offset: 0, 0
+  index: -1
+Head_word_right
+  rotate: false
+  xy: 103, 197
+  size: 83, 37
+  orig: 83, 37
+  offset: 0, 0
+  index: -1
+Head_word_up
+  rotate: false
+  xy: 103, 158
+  size: 85, 37
+  orig: 85, 37
+  offset: 0, 0
+  index: -1
+head_back_left_right
+  rotate: false
+  xy: 2, 158
+  size: 99, 150
+  orig: 99, 150
+  offset: 0, 0
+  index: -1

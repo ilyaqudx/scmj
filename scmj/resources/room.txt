@@ -1,0 +1,18 @@
+room.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+front_block
+  rotate: false
+  xy: 2, 132
+  size: 88, 128
+  orig: 88, 128
+  offset: 0, 0
+  index: -1
+front_block
+  rotate: false
+  xy: 2, 2
+  size: 88, 128
+  orig: 88, 128
+  offset: 0, 0
+  index: 2

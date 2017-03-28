@@ -1,0 +1,578 @@
+gameprepareImage.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+game_round_tip_bg
+  rotate: false
+  xy: 323, 461
+  size: 185, 39
+  orig: 185, 39
+  offset: 0, 0
+  index: -1
+prepare_flower_light
+  rotate: false
+  xy: 282, 294
+  size: 116, 58
+  orig: 116, 58
+  offset: 0, 0
+  index: -1
+game_round_tip_connect
+  rotate: false
+  xy: 343, 112
+  size: 71, 26
+  orig: 71, 26
+  offset: 0, 0
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 227, 475
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 3
+prepare_wall_w_item
+  rotate: false
+  xy: 237, 695
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 7
+prepare_wall_item
+  rotate: false
+  xy: 400, 342
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 9
+game_round_tip_right_corner
+  rotate: false
+  xy: 488, 183
+  size: 8, 39
+  orig: 8, 39
+  offset: 0, 0
+  index: -1
+prepare_flower_lan
+  rotate: false
+  xy: 488, 57
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+prepare_tip_quick_play_again
+  rotate: false
+  xy: 2, 66
+  size: 339, 62
+  orig: 339, 62
+  offset: 0, 0
+  index: -1
+prepare_btn_kaishi_sel
+  rotate: false
+  xy: 2, 187
+  size: 278, 109
+  orig: 278, 109
+  offset: 0, 0
+  index: -1
+prepare_single_moneylow
+  rotate: false
+  xy: 2, 160
+  size: 290, 25
+  orig: 290, 25
+  offset: 0, 0
+  index: -1
+prepare_pdianshu
+  rotate: false
+  xy: 70, 990
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+prepare_wall_w_item
+  rotate: false
+  xy: 38, 800
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 2
+prepare_flower_zhu_hl
+  rotate: false
+  xy: 418, 96
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+prepare_single_money_send
+  rotate: false
+  xy: 272, 510
+  size: 212, 138
+  orig: 212, 138
+  offset: 0, 0
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 327, 354
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 7
+prepare_wall_item
+  rotate: false
+  xy: 200, 697
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 5
+prepare_watermark_xlch
+  rotate: false
+  xy: 2, 586
+  size: 197, 46
+  orig: 197, 46
+  offset: 0, 0
+  index: -1
+prepare_flower_summer_hl
+  rotate: false
+  xy: 488, 130
+  size: 19, 21
+  orig: 19, 23
+  offset: 0, 2
+  index: -1
+prepaer_zhunbei_vertical
+  rotate: false
+  xy: 403, 267
+  size: 38, 73
+  orig: 38, 73
+  offset: 0, 0
+  index: -1
+prepare_btn_kaishi
+  rotate: false
+  xy: 2, 298
+  size: 278, 109
+  orig: 278, 109
+  offset: 0, 0
+  index: -1
+prepare_wall-w
+  rotate: false
+  xy: 2, 2
+  size: 439, 62
+  orig: 439, 62
+  offset: 0, 0
+  index: -1
+prepare_tip_quick_faild
+  rotate: false
+  xy: 2, 130
+  size: 338, 28
+  orig: 338, 28
+  offset: 0, 0
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 227, 527
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 2
+prepare_wall_w_item
+  rotate: false
+  xy: 70, 928
+  size: 32, 60
+  orig: 32, 60
+  offset: 0, 0
+  index: 6
+prepare_tip_quick_dot2
+  rotate: false
+  xy: 488, 176
+  size: 19, 5
+  orig: 19, 5
+  offset: 0, 0
+  index: -1
+prepare_wall_item
+  rotate: false
+  xy: 242, 409
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 8
+prepare_wall_item
+  rotate: false
+  xy: 110, 734
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 1
+prepare_wall_w_item
+  rotate: false
+  xy: 36, 930
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 1
+prepare_watermark_dp
+  rotate: false
+  xy: 2, 634
+  size: 196, 49
+  orig: 196, 49
+  offset: 0, 0
+  index: -1
+prepare_watermark_facaig
+  rotate: false
+  xy: 2, 486
+  size: 223, 48
+  orig: 223, 48
+  offset: 0, 0
+  index: -1
+prepare_flower_zhu
+  rotate: false
+  xy: 309, 214
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+prepare_flower_summer
+  rotate: false
+  xy: 488, 153
+  size: 19, 21
+  orig: 19, 23
+  offset: 0, 2
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 282, 406
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 6
+prepare_wall_item
+  rotate: false
+  xy: 2, 734
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 4
+prepare_flower_mei
+  rotate: false
+  xy: 282, 214
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+prepare_flower_spring
+  rotate: false
+  xy: 416, 174
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 201, 579
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 1
+prepare_wall_w_item
+  rotate: false
+  xy: 2, 866
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 5
+game_round_tip_round
+  rotate: false
+  xy: 416, 119
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
+prepare_wall_item
+  rotate: false
+  xy: 146, 734
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 0
+prepare_wall_w_item
+  rotate: false
+  xy: 70, 864
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 0
+prepare_wall_item
+  rotate: false
+  xy: 2, 800
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: -1
+prepare_flower_spring_hl
+  rotate: false
+  xy: 416, 147
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 342, 140
+  size: 43, 52
+  orig: 43, 52
+  offset: 0, 0
+  index: 5
+prepare_wall_w_item
+  rotate: false
+  xy: 72, 800
+  size: 32, 60
+  orig: 32, 60
+  offset: 0, 0
+  index: 9
+prepare_tip_quick_dot1
+  rotate: false
+  xy: 498, 183
+  size: 7, 5
+  orig: 7, 5
+  offset: 0, 0
+  index: -1
+prepare_wall_item
+  rotate: false
+  xy: 201, 631
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 7
+game_round_tip_two
+  rotate: false
+  xy: 411, 247
+  size: 25, 18
+  orig: 25, 18
+  offset: 0, 0
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 294, 160
+  size: 43, 52
+  orig: 43, 52
+  offset: 0, 0
+  index: 0
+prepare_wall_w_item
+  rotate: false
+  xy: 2, 930
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 4
+prepare_wall_h_item
+  rotate: false
+  xy: 339, 194
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 9
+prepare_tip_quick_playing
+  rotate: false
+  xy: 2, 409
+  size: 238, 25
+  orig: 238, 25
+  offset: 0, 0
+  index: -1
+prepare_wall_item
+  rotate: false
+  xy: 38, 734
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 3
+prepare_flower_mei_hl
+  rotate: false
+  xy: 309, 237
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+prepare_flower_winter_hl
+  rotate: false
+  xy: 416, 201
+  size: 25, 23
+  orig: 25, 23
+  offset: 0, 0
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 278, 458
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 4
+prepare_wall_w_item
+  rotate: false
+  xy: 237, 631
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 8
+prepare_watermark_gbsingle
+  rotate: false
+  xy: 327, 412
+  size: 168, 47
+  orig: 168, 47
+  offset: 0, 0
+  index: -1
+prepare_tip_quick_dot0
+  rotate: false
+  xy: 504, 2
+  size: 1, 1
+  orig: 21, 25
+  offset: 0, 24
+  index: -1
+prepare_wall_item
+  rotate: false
+  xy: 271, 650
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 6
+prepare_flower_fall
+  rotate: false
+  xy: 384, 239
+  size: 25, 19
+  orig: 25, 21
+  offset: 0, 2
+  index: -1
+prepare_watermark_xzdd
+  rotate: false
+  xy: 2, 536
+  size: 197, 48
+  orig: 197, 48
+  offset: 0, 0
+  index: -1
+prepare_flower_winter
+  rotate: false
+  xy: 384, 216
+  size: 25, 21
+  orig: 25, 23
+  offset: 0, 2
+  index: -1
+prepare_wall_h_item
+  rotate: false
+  xy: 282, 354
+  size: 43, 50
+  orig: 43, 50
+  offset: 0, 0
+  index: 8
+prepare_wall_item
+  rotate: false
+  xy: 74, 734
+  size: 34, 64
+  orig: 34, 64
+  offset: 0, 0
+  index: 2
+game_round_tip_north
+  rotate: false
+  xy: 387, 192
+  size: 27, 22
+  orig: 27, 22
+  offset: 0, 0
+  index: -1
+game_round_tip_east
+  rotate: false
+  xy: 418, 66
+  size: 23, 28
+  orig: 23, 28
+  offset: 0, 0
+  index: -1
+prepare_watermark_gbonline
+  rotate: false
+  xy: 2, 685
+  size: 196, 47
+  orig: 196, 47
+  offset: 0, 0
+  index: -1
+prepare_flower_lan_hl
+  rotate: false
+  xy: 488, 34
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+game_round_tip_sourth
+  rotate: false
+  xy: 387, 140
+  size: 27, 26
+  orig: 27, 26
+  offset: 0, 0
+  index: -1
+prepare_flower_fall_hl
+  rotate: false
+  xy: 411, 226
+  size: 25, 19
+  orig: 25, 21
+  offset: 0, 2
+  index: -1
+prepare_flower_ju
+  rotate: false
+  xy: 488, 105
+  size: 19, 23
+  orig: 19, 23
+  offset: 0, 0
+  index: -1
+prepare_count_kuohao
+  rotate: false
+  xy: 443, 2
+  size: 59, 30
+  orig: 59, 30
+  offset: 0, 0
+  index: -1
+prepare_flower_ju_hl
+  rotate: false
+  xy: 488, 80
+  size: 19, 23
+  orig: 19, 23
+  offset: 0, 0
+  index: -1
+prepare_watermark_laizig
+  rotate: false
+  xy: 2, 436
+  size: 223, 48
+  orig: 223, 48
+  offset: 0, 0
+  index: -1
+game_round_tip_one
+  rotate: false
+  xy: 282, 246
+  size: 25, 8
+  orig: 25, 8
+  offset: 0, 0
+  index: -1
+prepare_wall_w_item
+  rotate: false
+  xy: 36, 866
+  size: 32, 62
+  orig: 32, 62
+  offset: 0, 0
+  index: 3
+game_round_tip_west
+  rotate: false
+  xy: 387, 168
+  size: 27, 22
+  orig: 27, 22
+  offset: 0, 0
+  index: -1
+prepaer_zhunbei_horizontal
+  rotate: false
+  xy: 343, 66
+  size: 73, 44
+  orig: 73, 44
+  offset: 0, 0
+  index: -1
+prepare_flower_bg
+  rotate: false
+  xy: 282, 260
+  size: 119, 32
+  orig: 119, 32
+  offset: 0, 0
+  index: -1
+prepare_wall-h
+  rotate: false
+  xy: 443, 34
+  size: 43, 376
+  orig: 43, 376
+  offset: 0, 0
+  index: -1

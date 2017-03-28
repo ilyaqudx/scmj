@@ -1,0 +1,60 @@
+timerImage.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+TimerProgress
+  rotate: false
+  xy: 300, 60
+  size: 114, 114
+  orig: 114, 114
+  offset: 0, 0
+  index: -1
+Timer_blackBack
+  rotate: false
+  xy: 2, 2
+  size: 156, 156
+  orig: 156, 156
+  offset: 0, 0
+  index: -1
+Timer_wind0
+  rotate: false
+  xy: 302, 2
+  size: 140, 56
+  orig: 140, 56
+  offset: 0, 0
+  index: -1
+Timer_wind1
+  rotate: false
+  xy: 416, 144
+  size: 56, 140
+  orig: 56, 140
+  offset: 0, 0
+  index: -1
+Timer_wind2
+  rotate: false
+  xy: 160, 2
+  size: 140, 56
+  orig: 140, 56
+  offset: 0, 0
+  index: -1
+Timer_wind3
+  rotate: false
+  xy: 444, 2
+  size: 56, 140
+  orig: 56, 140
+  offset: 0, 0
+  index: -1
+Timer_windBack
+  rotate: false
+  xy: 160, 60
+  size: 138, 138
+  orig: 138, 138
+  offset: 0, 0
+  index: -1
+Timer_windBack_DP
+  rotate: false
+  xy: 300, 176
+  size: 104, 138
+  orig: 104, 138
+  offset: 0, 0
+  index: -1
