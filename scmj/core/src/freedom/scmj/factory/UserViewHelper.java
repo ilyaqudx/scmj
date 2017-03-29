@@ -9,7 +9,7 @@ import freedom.scmj.common.ui.NumberFont;
 import freedom.scmj.common.ui.UI;
 import freedom.scmj.common.var3d.net.freefont.FreeBitmapFont;
 import freedom.scmj.entity.GameUser;
-import freedom.scmj.ui.UserNode;
+import freedom.scmj.ui.UserView;
 
 /**游戏场
  * @author Administrator
@@ -17,16 +17,16 @@ import freedom.scmj.ui.UserNode;
  */
 public class UserViewHelper {
 
-	public static final UserNode createUpDownUser(GameUser user,TextureAtlas userHeadAtlas)
+	public static final UserView createUpDownUser(GameUser user,TextureAtlas userHeadAtlas)
 	{
 		String userName = user.getName();
 		int gender = user.getSex();
 		int gold   = user.getGold();
-		UserNode node = new UserNode(userName,gender,gold);
-		Image back = UI.image(UserNode.BACK_STRING_UP_DOWN, userHeadAtlas);
+		UserView node = new UserView(userName,gender,gold);
+		Image back = UI.image(UserView.BACK_STRING_UP_DOWN, userHeadAtlas);
 		node.setSize(back.getWidth(), back.getHeight());
-		Image userHead = UI.image(gender == UserNode.GENDER_MAN ? UserNode.GENDER_MAN_RES : 
-			UserNode.GENDER_WOMAN_RES, userHeadAtlas);
+		Image userHead = UI.image(gender == UserView.GENDER_MAN ? UserView.GENDER_MAN_RES : 
+			UserView.GENDER_WOMAN_RES, userHeadAtlas);
 		
 		//create username
 		FreeBitmapFont font = new FreeBitmapFont(GameApplication.I.getFreeListener());
@@ -45,17 +45,17 @@ public class UserViewHelper {
 		return node;
 	}
 	
-	public static final UserNode createLeftRightUser(GameUser user,TextureAtlas userHeadAtlas)
+	public static final UserView createLeftRightUser(GameUser user,TextureAtlas userHeadAtlas)
 	{
 		String userName = user.getName();
 		int gender = user.getSex();
 		int gold   = user.getGold();
-		UserNode node = new UserNode(userName,gender,gold);
-		Image back = UI.image(UserNode.BACK_STRING_LEFT_RIGHT, userHeadAtlas);
+		UserView node = new UserView(userName,gender,gold);
+		Image back = UI.image(UserView.BACK_STRING_LEFT_RIGHT, userHeadAtlas);
 		node.setSize(back.getWidth(), back.getHeight());
 		
-		Image userHead = UI.image(gender == UserNode.GENDER_MAN ? UserNode.GENDER_MAN_RES : 
-			UserNode.GENDER_WOMAN_RES, userHeadAtlas);
+		Image userHead = UI.image(gender == UserView.GENDER_MAN ? UserView.GENDER_MAN_RES : 
+			UserView.GENDER_WOMAN_RES, userHeadAtlas);
 		
 		//create username
 		FreeBitmapFont font = new FreeBitmapFont(GameApplication.I.getFreeListener());

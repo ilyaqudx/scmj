@@ -30,6 +30,7 @@ import freedom.scmj.GameApplication;
 import freedom.scmj.common.screen.BaseScreen;
 import freedom.scmj.common.tween.accessor.ActorAccessor;
 import freedom.scmj.common.ui.UI;
+import freedom.scmj.common.ui.View;
 import freedom.scmj.entity.Card;
 import freedom.scmj.entity.GameData;
 import freedom.scmj.entity.GameTable;
@@ -39,11 +40,11 @@ import freedom.scmj.entity.Operator;
 import freedom.scmj.factory.CardFactory;
 import freedom.scmj.factory.UserViewHelper;
 import freedom.scmj.listener.CardListener;
-import freedom.scmj.ui.GameStartNode;
 import freedom.scmj.ui.GreatWall;
 import freedom.scmj.ui.OperatorView;
+import freedom.scmj.ui.StartGameView;
 import freedom.scmj.ui.TimerCenterNew;
-import freedom.scmj.ui.UserNode;
+import freedom.scmj.ui.UserView;
 import freedom.scmj.utils.AudioHelper;
 
 public class GameScreen extends BaseScreen {
@@ -67,7 +68,7 @@ public class GameScreen extends BaseScreen {
 	// 牌桌
 	private GameTable table;
 	/** 用户信息节点 */
-	private Map<Integer, UserNode> userViewMap = new LinkedHashMap<Integer, UserNode>();
+	private Map<Integer, UserView> userViewMap = new LinkedHashMap<Integer, UserView>();
 	// 开始按钮
 	private final Button startButton;
 	// 牌桌中心计时器
@@ -125,26 +126,8 @@ public class GameScreen extends BaseScreen {
 		// add danji chang
 		this.add(UI.pos(UI.image("prepare_watermark_gbsingle", prepareAtlas),800, 30));
 
-		// 创建用户信息
-		Collection<GameUser> gameUsers = table.getUsers();
-		UserNode userView = null;
-		float[] userViewPos = { 20, 840, 510, 80 };
-		for (GameUser user : gameUsers) {
-			if (user.getData().getSeat() % 2 == 0) {
-				userView = UserViewHelper.createUpDownUser(user,
-						userHeadAtlas);
-				userViewMap.put(user.getUserId(), userView);
-				this.add(UI.middleX(userView, userViewPos[user.getData()
-						.getSeat()]));
-			} else {
-				userView = UserViewHelper.createLeftRightUser(user,
-						userHeadAtlas);
-				userViewMap.put(user.getUserId(), userView);
-				this.add(UI.middleY(userView, userViewPos[user.getData()
-						.getSeat()]));
-			}
-
-		}
+		//显示用户头像
+		drawUserView();
 
 		// create timer
 		timer = (TimerCenterNew) this.add(UI.center(new TimerCenterNew()));
@@ -166,7 +149,27 @@ public class GameScreen extends BaseScreen {
 		});
 	}
 
-	private void startGame() {
+	private void drawUserView() {
+		float[] userViewPos = { 20, 940, 610, 240 };
+		Collection<GameUser> gameUsers = table.getUsers();
+		UserView userView = null;
+		for (GameUser user : gameUsers)
+		{
+			if (user.getData().getSeat() % 2 == 0) 
+			{
+				userView = UserViewHelper.createUpDownUser(user,userHeadAtlas);
+				View.create(userView).middleX(userViewPos[user.getData().getSeat()]).addTo(stage);
+				userViewMap.put(user.getUserId(), userView);
+			} else {
+				userView = UserViewHelper.createLeftRightUser(user,userHeadAtlas);
+				View.create(userView).middleY( userViewPos[user.getData().getSeat()]).addTo(stage);
+				userViewMap.put(user.getUserId(), userView);
+			}
+		}
+	}
+
+	private void startGame() 
+	{
 		// 先处理数据
 		table.startGame();
 		startButton.setVisible(false);
@@ -191,7 +194,7 @@ public class GameScreen extends BaseScreen {
 	 * 本家发牌动画
 	 * */
 	private void selfFirstPutCard(int putCount, List<Card> temp) {
-
+		int seat = 0;
 		// 显示新牌(乱序)
 		for (int j = 0; j < putCount; j++)
 		{
@@ -202,20 +205,21 @@ public class GameScreen extends BaseScreen {
 		}
 		// 排序是排的集合变量的指向,对象本身的位置是不会改变的
 		List<Card> putedCardList = newCardList;// new
-		// ArrayList<Card>(newCardList);
 		// 添加新牌
 		newCardList.addAll(temp);
 		// 排序
 		Collections.sort(newCardList);
 		// 插入新牌
-		for (Card card : temp) {
+		for (Card card : temp) 
+		{
 			int index = newCardList.indexOf(card);
-			card.addAction(Actions.moveTo(80 + (index) * 82, 5, 0.5f));
+			card.addAction(Actions.moveTo(HAND_CARD_START_POS[seat][0] + (index) * HAND_CARD_WIDTH[seat], HAND_CARD_START_POS[seat][1], 0.5f));
 		}
 		// 移动旧牌
-		for (Card card : putedCardList) {
+		for (Card card : putedCardList) 
+		{
 			int index = newCardList.indexOf(card);
-			card.addAction(Actions.moveTo(80 + (index) * 82, 5, 0.5f));
+			card.addAction(Actions.moveTo(HAND_CARD_START_POS[seat][0] + (index) * HAND_CARD_WIDTH[seat], HAND_CARD_START_POS[seat][1], 0.5f));
 		}
 		
 		firstPutCardCallback(0.5f);
@@ -231,7 +235,6 @@ public class GameScreen extends BaseScreen {
 				{
 					//说明这一轮的四位玩家的玩都已经发完了.可以进入下一轮
 					//currentPutCardRound++;
-					//这儿还不能这样做，必须等动画完了才能执行
 					currentPutCardRound++;
 					System.out.println("首家发完牌,round : " + currentPutCardRound + ":canPut :" + canPut + ",seat : " + currentPutCardSeat);
 				}
@@ -240,7 +243,6 @@ public class GameScreen extends BaseScreen {
 				else{
 					canPut = true;
 					currentPutCardSeat = currentPutCardSeat == 3 ? 0 : ++currentPutCardSeat;
-					System.out.println("到底有没有来,seat : " + currentPutCardSeat + ",canPut : " + canPut);
 				}
 			}
 		})));
@@ -260,11 +262,12 @@ public class GameScreen extends BaseScreen {
 
 	/** 开始游戏将用户头像移动到合适的位置 */
 	private void playUserViewAnimation() {
-		float[][] userNodePos_After_Start = { { -420, 80 }, { 80, -30 },
-				{ -300, 0 }, { -70, 0 } };
+		float[][] userNodePos_After_Start = { { 160, 160 }, { 1150, UI.cy },
+				{ 160, 620 }, { 30, UI.cy } };
 		int index = 0;
-		for (UserNode node : userViewMap.values()) {
-			node.addAction(Actions.moveBy(userNodePos_After_Start[index][0],
+		for (UserView node : userViewMap.values()) 
+		{
+			node.addAction(Actions.moveTo(userNodePos_After_Start[index][0],
 					userNodePos_After_Start[index][1], 0.5f));
 			index++;
 		}
@@ -374,42 +377,59 @@ public class GameScreen extends BaseScreen {
 		}
 	}
 
+	/**
+	 * 第一次发牌的起始位置
+	 * */
+	public static final float[][] HAND_CARD_START_POS= {
+		{80,5},{1100,505},{420,610},{130,510}
+	};
+	/**
+	 * 新手牌插入的位置
+	 * */
+	public static final float[][] HAND_CARD_INSERT_POS = {
+		{1160,20},{1100,550},{380,635},{130,125}
+	};
+	public static final float HAND_CARD_WIDTH[] = 
+		{
+			82,25,38,25
+		};
+	
 	private void playPutCardAnimation(Card card) {
 		if (table.isSelf()) {
 			CardFactory.newSelfHandCard(card, tileAtlas);
-			card.setPosition(850, 20);
+			card.setPosition(1160, 20);
 			card.addListener(cardListener);
 			this.add(card);
 			Tween.to(card, ActorAccessor.POS_XY, 0.5f).targetRelative(0, -15)
 					.ease(Elastic.OUT).start(manager);
 		} else if (table.isRight()) {
 			CardFactory.newRightHandCard(card, tileAtlas);
-			card.setPosition(890, 528);
+			card.setPosition(1100, 580);
 			this.add(card);
 			Tween.to(card, ActorAccessor.POS_XY, 0.5f).targetRelative(0, -15)
 					.ease(Elastic.OUT).start(manager);
 		} else if (table.isTop()) {
 			CardFactory.newTopHandCard(card, tileAtlas);
-			card.setPosition(315, 535);
+			card.setPosition(370, 625);
 			this.add(card);
 			Tween.to(card, ActorAccessor.POS_XY, 0.5f).targetRelative(0, -15)
 					.ease(Elastic.OUT).start(manager);
 		} else if (table.isLeft()) {
 			CardFactory.newLeftHandCard(card, tileAtlas);
-			card.setPosition(100, 185);
+			card.setPosition(130, 125);
 			this.add(card);
 			Tween.to(card, ActorAccessor.POS_XY, 0.5f).targetRelative(0, -15)
 					.ease(Elastic.OUT).start(manager);
 		}
 	}
 
-	private GameStartNode startGroup;
+	private StartGameView startGroup;
 
 	/**
 	 * 游戏开始时显示的背景和文字动画
 	 * */
 	private void initStartGroup() {
-		startGroup = new GameStartNode();
+		startGroup = new StartGameView();
 		this.add(startGroup);
 	}
 
@@ -435,11 +455,10 @@ public class GameScreen extends BaseScreen {
 				List<Card> handCard = data.getHandCard();
 				
 				// 前3轮4张,最后一轮1张
-				List<Card> temp = handCard
-						.subList(count * 4,
-								putCount == 1 ? count * 4 + 1
-										: (count + 1) * 4);
-				if (seat == 0) {
+				int countEnd = putCount == 1 ? count * 4 + 1 : (count + 1) * 4;
+				List<Card> temp = handCard.subList(count * 4,countEnd);
+				if (seat == 0) 
+				{
 					// 本家发牌动画
 					selfFirstPutCard(putCount, temp);
 				} else if (seat == 1) {
@@ -447,8 +466,7 @@ public class GameScreen extends BaseScreen {
 					for (int j = 0; j < putCount; j++) {
 						Card card = temp.get(j);
 						CardFactory.newRightHandCard(card, tileAtlas);
-						GameScreen.this.add(UI.pos(card, 890,
-								455 - 25 * (count * 4 + j)));
+						GameScreen.this.add(UI.pos(card, HAND_CARD_START_POS[seat][0],HAND_CARD_START_POS[seat][1] - HAND_CARD_WIDTH[seat] * (count * 4 + j)));
 					}
 					firstPutCardCallback(0.2f);
 					
@@ -457,8 +475,7 @@ public class GameScreen extends BaseScreen {
 					for (int j = 0; j < putCount; j++) {
 						Card card = temp.get(j);
 						CardFactory.newTopHandCard(card, tileAtlas);
-						GameScreen.this.add(UI.pos(card,
-								360 + 38 * (count * 4 + j), 520));
+						GameScreen.this.add(UI.pos(card,HAND_CARD_START_POS[seat][0] + HAND_CARD_WIDTH[seat] * (count * 4 + j), HAND_CARD_START_POS[seat][1]));
 					}
 					firstPutCardCallback(0.2f);
 				} else if (seat == 3) {
@@ -466,8 +483,7 @@ public class GameScreen extends BaseScreen {
 					for (int j = 0; j < putCount; j++) {
 						Card card = temp.get(j);
 						CardFactory.newLeftHandCard(card, tileAtlas);
-						GameScreen.this.add(UI.pos(card, 100,
-								510 - 25 * (count * 4 + j)));
+						GameScreen.this.add(UI.pos(card, HAND_CARD_START_POS[seat][0],HAND_CARD_START_POS[seat][1] - HAND_CARD_WIDTH[seat] * (count * 4 + j)));
 					}
 					firstPutCardCallback(0.2f);
 				}
@@ -514,6 +530,10 @@ public class GameScreen extends BaseScreen {
 		System.out.println("==========TURN========================");
 	}
 
+	public static final float[][] OUT_CARD_POS = {
+		{},{},{},{}
+	};
+	
 	private void playOutCardAnimation(Card card) {
 		int count = table.getActionUser().getData().getOutCard().size();
 		boolean newLine = count > 10;
@@ -530,8 +550,8 @@ public class GameScreen extends BaseScreen {
 			CardFactory.newSelfTopOutCard(showOutCard, tileAtlas);
 			UI.pos(showOutCard, card.getX(), card.getY());
 			
-			targetX = ((newLine ? count - 10 : count) - 1) * 37 + 300;
-			targetY = newLine ? 120 : 163;
+			targetX = ((newLine ? count - 10 : count) - 1) * 37 + 400;
+			targetY = newLine ? 200 : 243;
 			
 			Timeline.createSequence()
 			.push(Tween.to(showOutCard, ActorAccessor.POS_XY, 0.5f)
@@ -551,9 +571,9 @@ public class GameScreen extends BaseScreen {
 		} else if (table.isLeft()) 
 		{
 			UI.middleY(showTipCard, 200);
-			targetX = newLine ? 153 : 200;
-			targetY = 460 - ((newLine ? count - 10: count) - 1) * 32;
-			CardFactory.newLeftRightOutCard(showOutCard, tileAtlas);
+			targetX = newLine ? 253 : 300;
+			targetY = 490 - ((newLine ? count - 10: count) - 1) * 32;
+			CardFactory.newLeftOutCard(showOutCard, tileAtlas);
 			UI.pos(showOutCard, card.getX(), card.getY());
 			showOutCard.addAction(Actions.sequence(Actions.moveTo(targetX,targetY,0.5f),Actions.run(new Runnable() {
 				
@@ -564,8 +584,8 @@ public class GameScreen extends BaseScreen {
 		} else if (table.isTop()) 
 		{
 			UI.middleX(showTipCard, 450);
-			targetX = 680 - ((newLine ? count - 10 : count) - 1) * 37;
-			targetY = newLine ? 387 : 430;
+			targetX = 880 - ((newLine ? count - 10 : count) - 1) * 37;
+			targetY = newLine ? 447 : 490;
 			CardFactory.newSelfTopOutCard(showOutCard, tileAtlas);
 			UI.pos(showOutCard, card.getX(), card.getY());
 			showOutCard.addAction(Actions.sequence(Actions.moveTo(targetX,targetY,0.5f),Actions.run(new Runnable() {
@@ -578,9 +598,9 @@ public class GameScreen extends BaseScreen {
 		} else if (table.isRight())
 		{
 			UI.middleY(showTipCard, 750);
-			targetX = newLine ? 777 : 730;
+			targetX = newLine ? 1007 : 960;
 			targetY = 430 - ((newLine ? count - 10: count) - 1) * 32;
-			CardFactory.newLeftRightOutCard(showOutCard, tileAtlas);
+			CardFactory.newRightOutCard(showOutCard, tileAtlas);
 			UI.pos(showOutCard, card.getX(), card.getY());
 			showOutCard.addAction(Actions.sequence(Actions.moveTo(targetX,targetY,0.5f),Actions.run(new Runnable() {
 				
@@ -628,6 +648,7 @@ public class GameScreen extends BaseScreen {
 	 * */
 	private void showSelfHandCardMove(GameData data, List<Card> handCard,
 			MoveRange move) {
+		int seat = 0;
 		// 显示移动动画(4种情况,打首补首,打尾补尾,打前补后,打后补前)
 		int begin = move.getBegin();
 		int end = move.getEnd();
@@ -640,7 +661,7 @@ public class GameScreen extends BaseScreen {
 			{
 				List<Card> moveList = handCard.subList(begin, end);
 				for (Card moveCard : moveList) 
-					moveCard.addAction(Actions.moveBy(-58, 0, 0.5f));
+					moveCard.addAction(Actions.moveBy(-HAND_CARD_WIDTH[seat], 0, 0.5f));
 			}
 		}
 		else
@@ -650,17 +671,17 @@ public class GameScreen extends BaseScreen {
 			data.clearLastPutCard();
 			if (begin == end) {
 				if (begin == size - 1)
-					newCard.addAction(Actions.moveTo(MARGIN_LEFT_BY_GROUP[marginLeftCount] + 58 * (size - 1), 5, 0.5f));
+					newCard.addAction(Actions.moveTo(MARGIN_LEFT_BY_GROUP[marginLeftCount] + HAND_CARD_WIDTH[seat] * (size - 1), 5, 0.5f));
 				else {
 					playInsertAnimation(end, newCard,marginLeftCount);
 				}
 			} else if (begin < end) {
 				List<Card> moveList = handCard.subList(begin, end);
 				for (Card moveCard : moveList) {
-					moveCard.addAction(Actions.moveBy(-58, 0, 0.5f));
+					moveCard.addAction(Actions.moveBy(-HAND_CARD_WIDTH[seat], 0, 0.5f));
 				}
 				if (size - 1 == end)
-					newCard.addAction(Actions.moveTo(MARGIN_LEFT_BY_GROUP[marginLeftCount] + 58 * (end), 5, 0.5f));
+					newCard.addAction(Actions.moveTo(MARGIN_LEFT_BY_GROUP[marginLeftCount] + HAND_CARD_WIDTH[seat] * (end), 5, 0.5f));
 				else {
 					playInsertAnimation(end, newCard,marginLeftCount);
 				}
@@ -668,7 +689,7 @@ public class GameScreen extends BaseScreen {
 			} else if (begin > end) {
 				List<Card> moveList = handCard.subList(end, begin + 1);
 				for (Card moveCard : moveList) {
-					moveCard.addAction(Actions.moveBy(58, 0, 0.5f));
+					moveCard.addAction(Actions.moveBy(HAND_CARD_WIDTH[seat], 0, 0.5f));
 				}
 				playInsertAnimation(end, newCard,marginLeftCount);
 			}
@@ -682,9 +703,10 @@ public class GameScreen extends BaseScreen {
 	 * @param newCard
 	 */
 	private void playInsertAnimation(int end, Card newCard,int marginLeftCount) {
+		int seat = 0;
 		SequenceAction seq = Actions.sequence();
 		seq.addAction(Actions.moveBy(0, 70, 0.3f));
-		seq.addAction(Actions.moveTo(MARGIN_LEFT_BY_GROUP[marginLeftCount] + 58 * end, 75, 0.3f));
+		seq.addAction(Actions.moveTo(MARGIN_LEFT_BY_GROUP[marginLeftCount] + HAND_CARD_WIDTH[seat] * end, 75, 0.3f));
 		seq.addAction(Actions.moveBy(0, -70, 0.3f));
 		newCard.addAction(seq);
 	}
@@ -699,6 +721,7 @@ public class GameScreen extends BaseScreen {
 	 */
 	public void operator(byte operator) 
 	{
+		int seat = 0;
 		//隐藏操作选择
 		operatorView.hide();
 		if(operator != GameTable.OPT_GUO)
@@ -713,16 +736,28 @@ public class GameScreen extends BaseScreen {
 				playPengOrGangAnimation(operator);
 				//获得删除的牌
 				List<Card> removeCard = operatorList.values().iterator().next();
-				//手牌中清除已碰牌
+				//手牌中清除已碰牌,STAGE中删除
 				for (Card card : removeCard)
 					card.remove();
+				//显示碰牌
+				GameData data  = table.getSelfUser().getData();
+				int groupCount = data.getGroupCount();
+				List<Card> lastGroup = data.getGroupCard().get(groupCount - 1);
+				for (int i = 0;i < lastGroup.size();i++) 
+				{
+					Card pengCard = CardFactory.newSelfPengGangCard(lastGroup.get(0));
+					View.create(pengCard)
+					.pos(80 + HAND_CARD_WIDTH[seat] * (i + (groupCount - 1) * 3), 
+							HAND_CARD_START_POS[seat][1])
+					.addTo(stage);
+				}
 				//移动剩余手牌位置.删除牌左边的牌右右移
 				int removeIndex = operatorList.keySet().iterator().next();
 				if(removeIndex > 0)
 				{
 					List<Card> fontCardList = table.getSelfUser().getData().subHandCard(removeIndex);
 					for (Card card : fontCardList)
-						card.addAction(Actions.moveBy(116, 0,0.5f));
+						card.addAction(Actions.moveBy(HAND_CARD_WIDTH[seat] * 2, 0,0.5f));
 				}
 				//切换活动玩家
 				table.setActionSeat(table.getSelfUser().getData().getSeat());
@@ -735,7 +770,7 @@ public class GameScreen extends BaseScreen {
 			else if(operator == GameTable.OPT_GANG)
 			{
 				AudioHelper.playAudio(AudioHelper.GANG);
-				//手牌中清除已碰牌
+				//手牌中清除已杠牌
 				List<Card> removeCard = operatorList.values().iterator().next();
 				for (Card card : removeCard)
 					card.remove();

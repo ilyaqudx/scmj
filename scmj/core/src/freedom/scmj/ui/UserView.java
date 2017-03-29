@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 import freedom.scmj.common.ui.NumberFont;
 
-public class UserNode extends Group 
+public class UserView extends Group 
 {
 	
 	public static final String BACK_STRING_UP_DOWN = "Head_back_up_down",
@@ -30,7 +30,7 @@ public class UserNode extends Group
 	private int gender;
 	private String name;
 	
-	public UserNode(String name,int gender,int gold)
+	public UserView(String name,int gender,int gold)
 	{
 		//原始数据
 		this.name  = name;
@@ -38,7 +38,7 @@ public class UserNode extends Group
 		this.gender= gender;
 	}
 	
-	public UserNode setNode(Image back,Image userHead,Label userName,NumberFont goldFont)
+	public UserView setNode(Image back,Image userHead,Label userName,NumberFont goldFont)
 	{
 		this.back = back;
 		this.userHead = userHead;

@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.Align;
 import freedom.scmj.common.tween.accessor.ActorAccessor;
 import freedom.scmj.common.ui.UI;
 
-public class GameStartNode extends Group {
+public class StartGameView extends Group {
 
 	/**背景*/
 	private Image back;
@@ -22,7 +22,7 @@ public class GameStartNode extends Group {
 	/**动画缓存*/
 	Timeline animation;
 
-	public GameStartNode() 
+	public StartGameView() 
 	{
 		// game start back
 		back = (Image) UI.center(UI.image("game_start_mask.png"));
@@ -61,7 +61,7 @@ public class GameStartNode extends Group {
 		if(animation == null)
 		{
 			animation = Timeline.createSequence()
-					.delay(1)
+					.delay(0.5f)
 					.push(Tween.to(startWord, ActorAccessor.SCALE_XY, 0.2f).target(3f,3f))
 					.push(Tween.set(startWord, ActorAccessor.OPACITY).target(0))
 					.push(Tween.to(back, ActorAccessor.SCALE_XY, 0.3f).targetRelative(0, -1))

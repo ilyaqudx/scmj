@@ -48,6 +48,11 @@ public class Card extends Group implements Comparable<Card>{
 		return this.id;
 	}
 	
+	public String getString()
+	{
+		return type + "" + value;
+	}
+	
 	public static final String getTypeString(int type)
 	{
 		return String.valueOf(type);

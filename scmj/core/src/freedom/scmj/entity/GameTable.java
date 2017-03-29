@@ -39,7 +39,7 @@ public class GameTable {
 	/** 洗牌次数 */
 	public static final int SHUFFLE_TIME = 5;
 	/** 出牌时间 */
-	private int outCardTimeout = 5;
+	private int outCardTimeout = 1;
 	/** 当前活动玩家座位号 */
 	private int actionSeat = 0;
 	/** 本家 */
@@ -160,7 +160,8 @@ public class GameTable {
 	 * 
 	 * @return
 	 */
-	public Card selectOneOutCard() {
+	public Card selectOneOutCard() 
+	{
 		GameData data = getActionUser().getData();
 		Card lastPutCard = data.getLastPutCard();
 		return lastPutCard == null ? data.removeCard() : lastPutCard;

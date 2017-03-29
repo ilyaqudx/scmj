@@ -129,6 +129,11 @@ public class GameData
 	Collections.sort(handCard);
     }
     
+    public List<List<Card>> getGroupCard()
+    {
+    	return this.groupCard;
+    }
+    
     /**
      * 摸牌/打牌后可做的操作(杠/胡)
      * */
